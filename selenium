@@ -1,0 +1,22 @@
+#Залогиниться на сайте. Вывести сообщение, которое появляется после логина (связка логин/пароль может быть любой).
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.common.keys import Keys
+
+service = Service('chromedriver.exe')
+driver = webdriver.Chrome(service = service)
+driver.get('https://auth.leroymerlin.ru/login?clientId=H0BmGuQ72JKTzins1qIX&callbackUri=https://leroymerlin.ru/oauthCallback&state=https://leroymerlin.ru/')
+
+my_element = driver.find_element(By.ID, "id_33nYM")
+my_element.send_keys("vovktanya55@gmail.com")
+
+my_element = driver.find_element(By.ID, "id_jZe41")
+my_element.send_keys("vfksim55")
+
+my_element.send_keys(Keys.ENTER)
+
+seme = driver.find_element(By.CSS_SELECTOR, 'h2.t3y6ha_plp.h159z7us_plp')
+                           
+print(seme)
